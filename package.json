@@ -8,7 +8,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd fit-monkeys && npm run start",
     "seed": "node scripts/seedDB.js",
-    "install": "cd fit-monkeys && yarn install",
+    "install": "cd fit-monkeys && npm install",
     "build": "cd fit-monkeys && npm run build",
     "heroku-postbuild": "npm run build"
   },
