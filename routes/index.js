@@ -19,12 +19,15 @@ router.get('/test', function(req, res, next) {
  
   connection.query('SELECT * from sporttype', function (error, results, fields) {
     if (error) throw error;
-    console.log('The solution is: ', results[0].sport_name);
-    res.send(results[0].sport_name);
+    console.log('this is index',results);
+    res.send(results);
   });
   
   connection.end();
 
 });
 
+router.get('/main', function(req,res){
+  res.sendFile(__dirname + "/../views/main.html");
+})
 module.exports = router;
