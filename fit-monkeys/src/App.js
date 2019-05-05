@@ -9,6 +9,7 @@ import Challenges from "./pages/Challenges/";
 import Login from "./pages/Login/";
 import Signup from "./pages/Signup/";
 import NoMatch from "./pages/NoMatch";
+import Landing from "./pages/Landing";
 import './App.css';
 
 const App = () => {
