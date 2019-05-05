@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 //import Header from "../../components/Header";
-import { Input } from "../../components/Form";
+import { Input, SignupBtn } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 //import API from "../../utils/API";
-//import LoginButton from "../../components/LoginButton";
+import { Link } from "react-router-dom";
 //import Footer from "../components/Footer";
 
 
@@ -87,10 +87,13 @@ class Signup extends Component {
                         name="location"
                         placeholder="Location"/>                        
                     </form>
+                    <SignupBtn />
                 </Col>
                 <Col size="6">
                 <p>Or,</p>
-                <p>insert login button here</p>
+                <Link to="/login">
+                    <button class="btn btn-warning">Login with an existing account</button>
+                </Link>
                 </Col>
             </Row>
             
