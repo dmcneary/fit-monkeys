@@ -4,6 +4,7 @@ import Jumbotron from "../../components/Jumbotron";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { Col, Row, Container } from "../../components/Grid";
+// import Image from "../../Images"
 
 
 class Landing extends Component {
@@ -20,7 +21,7 @@ class Landing extends Component {
                     </Jumbotron>
                     <Row>
                         <Col size="md-6">
-                            <img src='https://www.macobserver.com/wp-content/uploads/2018/06/iphone-x-apple-maps.jpg' alt="Running" align="middle" width="800" height="400" />
+                            <img src="../../Images/bike-monkey.jpg" alt="Running" align="middle" width="800" height="400" />
                         </Col>
                         <Col size="md-6 sm-12">
                             {/* <SignUpBtn
@@ -28,7 +29,7 @@ class Landing extends Component {
                             >
                                 Sign Up
                       </SignUpBtn> */}
-                      <p>insert login button here</p>
+                            <p>insert login button here</p>
                         </Col>
                     </Row>
                 </Container>

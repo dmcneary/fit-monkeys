@@ -1,0 +1,67 @@
+.navbar-brand {
+    color: #ff8000;
+    font-size: 45px;
+}
+
+.header {
+    background-color: none;
+    border-bottom: 1px solid #8c8b8b;
+    position: sticky;
+    /* font-family: 'Gugi', cursive; */
+    font-family: 'Faster One', cursive; 
+}
+
+.nav-log {
+    color:#ff8000;
+    font-size: 25px;
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+      float: none;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .navbar-brand {
+      float: none;
+      display: block;
+      font-size: 30px; 
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .nav-log {
+      float: none;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .header, .nav-log {
+      float: none;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .header {
+      float: none;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .nav.log {
+      float: right;
+      display: block;
+    }
+  }
+  
+  
+
