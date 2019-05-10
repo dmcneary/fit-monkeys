@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./pages/Landing/";
-import Dashboard from "./pages/Dashboard/";
-import AllActivities from "./pages/AllActivities/";
-import ActivityDetail from "./pages/ActivityDetail/";
-import NewActivity from "./pages/NewActivity/";
-import Challenges from "./pages/Challenges/";
-import Login from "./pages/Login/";
-import Signup from "./pages/Signup/";
-import NoMatch from "./pages/NoMatch";
 import Landing from "./pages/Landing";
+import Dashboard from "./pages/Dashboard";
+import AllActivities from "./pages/AllActivities";
+import NewActivity from "./pages/NewActivity";
+import ActivityDetail from "./pages/ActivityDetail";
+import Challenges from "./pages/Challenges";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import NoMatch from "./pages/NoMatch";
 import './App.css';
 
 const App = () => {

@@ -6,5 +6,8 @@ export default {
     },
     userLogin: () => {
         return axios.get("users/login");
+    },
+    getUserActivities: () => {
+        return ("No activities to display");
     }
 }
