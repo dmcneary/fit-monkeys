@@ -19,10 +19,10 @@ const App = () => {
       <Switch>
         {/* <Route exact path="/" component={Landing} /> */}
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/all-activities" component={AllActivities} />
+        <Route exact path="/" component={AllActivities} />
         <Route exact path="/activities/:id" component={ActivityDetail} />
         <Route exact path="/newactivity" component={NewActivity} />
-        <Route exact path="/" component={Challenges} />
+        <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route component={NoMatch} />
