@@ -1,12 +1,17 @@
 import React from "react";
+import "./Header.css";
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a className="navbar-brand" href="/">
-      Fit Monkeys
+    <nav class="header navbar navbar-expand-lg">
+        <a className="navbar-brand" href="/">
+            Fit Monkeys
     </a>
-   
-  </nav>
+        <a className="nav-log" href="/">
+            Log In
+    </a>
+
+    </nav>
 );
 
 export default Header;
+
