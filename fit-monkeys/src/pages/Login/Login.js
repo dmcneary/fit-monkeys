@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Header from "../../components/Header";
 import { Col, Row, Container } from "../../components/Grid";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
 
 
