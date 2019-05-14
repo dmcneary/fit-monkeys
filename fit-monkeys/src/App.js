@@ -20,7 +20,7 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      user: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -45,7 +45,7 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          user: response.data.user.username
         })
       } else {
         console.log('Get user: no user');
@@ -60,6 +60,8 @@ class App extends Component {
   render () {
     return (
       <Router>
+      {//conditional routing here: logged in or nah
+      }
       <Header updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
       <div>
         <Switch>
@@ -71,7 +73,8 @@ class App extends Component {
           <Route exact path="/challenges" component={Challenges} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route component={NoMatch} />
+          {//<Route component={NoMatch} />
+          }
         </Switch>
       </div>
       <Footer />

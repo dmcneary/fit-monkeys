@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-const uri = 'mongodb://localhost:27017/simple-mern-passport' 
+const uri = 'mongodb://localhost:27017/fit-monkeys' 
 
 mongoose.connect(uri).then(
     () => { 
