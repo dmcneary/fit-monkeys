@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
                 password: password
                
             })
-            newUser.save((err, savedUser) => {
+            User.create(req.body, (err, savedUser) => {
                 if (err) return res.json(err)
                 res.json(savedUser)
             })

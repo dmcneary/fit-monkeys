@@ -31,6 +31,7 @@ class Header extends Component {
             <nav className="header navbar navbar-expand-lg">
                 <a className="navbar-brand" href="/">Fit Monkeys</a>
                 {loggedIn ? (
+                    // move logout to navbar logged in
                     <div>
                         <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
                             <span className="text-secondary">Logout</span>

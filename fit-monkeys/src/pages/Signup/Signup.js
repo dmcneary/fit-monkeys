@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Header from "../../components/Header";
 import { Input, SignupBtn } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
@@ -20,20 +19,20 @@ class Signup extends Component {
             location: ""
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+		this.handleInputChange = this.handleInputChange.bind(this)
 	}
-	handleChange(event) {
+	handleInputChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
 	}
 	handleSubmit(event) {
+        event.preventDefault()
 		console.log('sign-up handleSubmit, username: ')
 		console.log(this.state.username)
-		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
+		axios.post('/user', {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
 			username: this.state.username,
@@ -47,7 +46,7 @@ class Signup extends Component {
 				if (!response.data.errmsg) {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
-						redirectTo: '/login'
+						redirectTo: '/user/login'
 					})
 				} else {
 					console.log('username already taken')
@@ -62,7 +61,6 @@ class Signup extends Component {
     render() {
         return (
         <Container fluid>
-            <Header />
             <Row>
                 <Col size="6">
                     <form>
@@ -106,7 +104,7 @@ class Signup extends Component {
                 <Col size="6">
                 <p>Or,</p>
                 <Link to="/login">
-                    <button class="btn btn-warning">Login with an existing account</button>
+                    <button className="btn btn-warning">Login with an existing account</button>
                 </Link>
                 </Col>
             </Row>

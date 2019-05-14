@@ -1,7 +1,9 @@
 import React from "react";
 
-export const LogOut = props => (
+const LogOut = props => (
   <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
     {props.children}
   </button>
 );
+
+export default LogOut;
