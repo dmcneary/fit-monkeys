@@ -5,8 +5,6 @@ import Header from "../../components/Header";
 import { Col, Row, Container } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
-
-
 class LoginForm extends Component {
     constructor() {
         super()
