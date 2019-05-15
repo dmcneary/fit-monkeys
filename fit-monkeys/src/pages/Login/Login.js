@@ -5,8 +5,6 @@ import Header from "../../components/Header";
 import { Col, Row, Container } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
-
-
 class LoginForm extends Component {
     constructor() {
         super()
@@ -62,7 +60,6 @@ class LoginForm extends Component {
         } else {
             return (
                 <Container fluid>
-                    <Header />
                     <Row>
                     <h4>Login</h4>
                     <form className="form-horizontal">
