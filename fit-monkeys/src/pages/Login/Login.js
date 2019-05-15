@@ -62,7 +62,6 @@ class LoginForm extends Component {
         } else {
             return (
                 <Container fluid>
-                    <Header />
                     <Row>
                     <h4>Login</h4>
                     <form className="form-horizontal">

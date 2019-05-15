@@ -14,18 +14,6 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// Routes
-app.use(routes)
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./fit-monkeys/build/index.html"));
-});
-
-
 app.use(
 	session({
 		secret: 'fraggle-rock', 
@@ -36,6 +24,16 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
+
+// Routes
+app.use(routes)
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./fit-monkeys/build/index.html"));
+});
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
