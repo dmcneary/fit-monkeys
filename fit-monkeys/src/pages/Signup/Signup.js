@@ -92,7 +92,7 @@ class Signup extends Component {
                 <Col size="6">
                 <p>Or,</p>
                 <Link to="/login">
-                    <button class="btn btn-warning">Login with an existing account</button>
+                    <button className="btn btn-warning">Login with an existing account</button>
                 </Link>
                 </Col>
             </Row>

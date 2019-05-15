@@ -9,8 +9,9 @@ import { Col, Row, Container } from "../../components/Grid";
 // import Image from "../../Images"
 import card from "../../utils/card.json";
 import img from "../../Images/monkeypic.jpg"
-// import img1 from "../../Images/bike-monkey.jpg"
-// import img2 from "../../Images/monkey-on-bicycle-5.png"
+import img1 from "../../Images/bike-monkey.jpg"
+import img2 from "../../Images/monkey-on-bicycle-5.png"
+import "./Landing.css";
 
 
 class Landing extends Component {
@@ -32,7 +33,9 @@ class Landing extends Component {
                     </Jumbotron>
                     <Row>
                         <Col size="md-6">
-                            <img src={img} alt="Running" align="middle" width="800" height="400" />
+                            <img src={img1} class="mx-auto d-block" alt="Running" align="middle"  />
+                            <img src={img} class="mx-auto d-block" alt="Running" align="middle"  />
+                            <img src={img2} class="mx-auto d-block" alt="Running" align="middle"  />
                         </Col>
                         <Col size="md-6 sm-12">
                             {/* <SignUpBtn
@@ -46,14 +49,14 @@ class Landing extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <ChallengeCard
+                {/* <ChallengeCard
             id={card.id}
             key={card.id}
             name={card.name}
             image={card.image}
             bananas={card.bananas}
             location={card.location}
-          />
+          /> */}
                
                 <Footer>
 
