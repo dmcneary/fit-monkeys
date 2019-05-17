@@ -2,17 +2,23 @@
    background-color: lightgray;
 
 } */
+
+th {
+   background-color: rgba(51, 121, 167, 0.694);
+   color: white;
+   font-size: bold;
+}
 .table{
     width:100%; 
     border-collapse:collapse; 
 }
 .table td{ 
     padding:7px; 
-    border:#4e95f4 1px solid;
+    /* border: #1F618D 1px solid; */
 }
 /* provide some minimal visual accomodation for IE8 and below */
 .table tr{
-    background: #b8d1f3;
+    background: #1F618D;
 }
 /*  Define the background color for all the ODD background rows  */
 .table tr:nth-child(odd){ 

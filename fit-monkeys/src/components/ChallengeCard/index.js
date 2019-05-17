@@ -1,6 +1,6 @@
 import React from "react";
 import "./ChallengeCard.css";
-import img from '../../Images/bananathumb.jpeg'
+import img from '../../Images/banana3.png'
 
 function ChallengeCard(props) {
     return (
@@ -18,8 +18,8 @@ function ChallengeCard(props) {
                     </li>
                     <li>
                         <strong>Bananas:</strong>
-                         {/* {props.bananas}
-                        <img alt={props.name} src={img} /> */}
+                         {props.bananas}
+                        <img alt={props.name} src={img}/>
                     </li>
                 </ul>
             </div>

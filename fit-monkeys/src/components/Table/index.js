@@ -9,6 +9,7 @@ function ActsTable(props) {
                 <tr>
 
                     {/* <th scope="col">#</th> */}
+                    <th scope="col">User</th>
                     <th scope="col">Sport</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
@@ -34,13 +35,14 @@ function ActsTable(props) {
  */}
 
                         {/* <th scope="row">1</th> */}
-                        <td>Sport: {activity.sport}</td>
-                        <td>Date: {activity.date}</td>
-                        <td>Time: {activity.time}</td>
-                        <td>Title: {activity.title}</td>
-                        <td>Description: {activity.description}</td>
-                        <td>Distance: {activity.distance}</td>
-                        <td>Duration: {activity.duration}</td>
+                        <td>{activity.user}</td>
+                        <td>{activity.sport}</td>
+                        <td>{activity.date}</td>
+                        <td>{activity.time}</td>
+                        <td>{activity.title}</td>
+                        <td>{activity.description}</td>
+                        <td>{activity.distance}</td>
+                        <td>{activity.duration}</td>
                         {/* </a> */}
                     </tr>
                     

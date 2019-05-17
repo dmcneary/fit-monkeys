@@ -9,25 +9,50 @@ import "./AllActivities.css";
 const mockResponse = {
     data: [
         {
-            _id: 'basgfahgsdnga',
+            _id: '1',
+            user: "Road Runner 77",
+            sport: "Cycling",
+            date: "July 26, 2019",
+            time: "7:15 AM",
+            title: "Griffith Park",
+            description: "Cycling through Griffith Park",
+            distance: "17 miles",
+            duration: "1.5 hour"
+        },
+        {
+            _id: '2',
+            user: "speedDemon",
             sport: "Running",
             date: "June 1, 2019",
-            time: "8:00AM",
+            time: "8:00 AM",
             title: "Canyon Run",
             description: "Run through Santa Monica Canyon",
             distance: "5 miles",
             duration: "1 hour"
         },
         {
-            _id: 'basgfahgsdnga',
-            sport: "Running",
-            date: "June 1, 2019",
-            time: "8:00AM",
-            title: "Canyon Run",
-            description: "Run through Santa Monica Canyon",
-            distance: "5 miles",
-            duration: "1 hour"
+            _id: '3',
+            user: "Hiking Dude 22",
+            sport: "Hiking",
+            date: "May 29th, 2019",
+            time: "2:00 PM",
+            title: "Topanga Hike",
+            description: "Hike through Topanga State Park",
+            distance: "4 miles",
+            duration: "2 hour"
+        },
+        {
+            _id: '4',
+            user: "Surfer Chick",
+            sport: "Surfing",
+            date: "June 11th, 2019",
+            time: "6:00 AM",
+            title: "Surfing Trip",
+            description: "Zuma Beach",
+            distance: "as many waves as possible",
+            duration: "2.5 hour"
         }
+
     ],
 }
 
@@ -121,11 +146,10 @@ class AllActivities extends Component {
         return (
             // sport, date, time, title, description, distance, duration
             <div>
-                <Header>
-
-                </Header>
-                <div class="jumbotron jumbotron-fluid">
+              
+                <div class="jumbotron jumbotron-fluid jumboAct">
                     <div class="container text-center">
+                    <br /><br /><br />
                         <h1 class="display-4">Featured Activities</h1>
                         <p class="lead"></p>
                     </div>
@@ -145,9 +169,7 @@ class AllActivities extends Component {
                         </a>    
                     </ActsTable>
                 ))} */}
-                {/* <Footer>
-
-                </Footer> */}
+             
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import SignUpBtn from "../../components/Buttons/SignUp";
 // import Jumbotron from "../../components/Jumbotron";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -33,9 +32,6 @@ class Challenge extends Component {
     render() {
         return (
             <div>
-                {/* <Header>
-
-                </Header> */}
                 <Jumbotron fluid className="Jumbo">
                     <Container>
                         <br /><br /><br />
@@ -62,9 +58,6 @@ class Challenge extends Component {
                     ))}
                 
                 </Wrapper>
-                {/* <Footer>
-
-                </Footer> */}
             </div>
         );
     }

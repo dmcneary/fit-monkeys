@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import SignUpBtn from "../../components/Buttons/SignUp";
-import Jumbotron from "../../components/Jumbotron";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+// import Jumbotron from "../../components/Jumbotron";
+// import Footer from "../../components/Footer";
+// import Header from "../../components/Header";
 import { Card } from "react-bootstrap";
 import { Button, ButtonToolbar } from "react-bootstrap";
 import { Carousel } from "react-bootstrap";
@@ -25,9 +25,9 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                <Container fluid>
-                    <Carousel className="imgHero">
-                        <Carousel.Item>
+                <Container fluid className="carousel-container">
+                    <Carousel className="carousel" >
+                        <Carousel.Item className="imgHero">
                             <img 
                                 className="d-block w-100 imgC"
                                 src={img3}
@@ -43,7 +43,7 @@ class Landing extends Component {
                                 </ButtonToolbar>
                             </Carousel.Caption>
                         </Carousel.Item>
-                        <Carousel.Item>
+                        <Carousel.Item className="imgHero">
                             <img 
                                 className="d-block w-100 imgC"
                                 src={img4}
@@ -59,7 +59,7 @@ class Landing extends Component {
                                 </ButtonToolbar>
                             </Carousel.Caption>
                         </Carousel.Item>
-                        <Carousel.Item>
+                        <Carousel.Item className="imgHero">
                             <img 
                                 className="d-block w-100 imgC"
                                 src={img5}

@@ -60,6 +60,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('AllActivities', AllActivities)
+    console.log('Landing', Landing)
     return (
       <Router>
         {//conditional routing here: logged in or nah

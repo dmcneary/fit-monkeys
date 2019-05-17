@@ -1,23 +1,16 @@
 
 .imgC {
-    max-height: 675px;
-    width: 100%;
+
+    position: absolute;
+    top:-100%; left:-100%; right: -100%; bottom:-100%;
+    margin: auto;
+    /* width: 100%; */
     text-align: center;
     /* background: url('backgroundimage.jpg') no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-.imgB {
-    height: 675px;
-    text-align: center;
-}
-
-.imgA {
-    height: 675px;
-    text-align: center;
 }
 
 .btn {
@@ -29,17 +22,27 @@
     background: url(https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/B25K+620.jpg);
 }
 
-.card {
+/* .card {
  width: 700px;
+} */
+
+.carousel {
+    overflow: hidden;
+}
+.carousel-inner {
+    min-width: 800px;
 }
 
 .imgHero {
-   max-height: 675px;
-   width: 100%;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   background-size: cover;
-   -o-background-size: cover;
+    position: relative;
+    max-height: 675px;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .Btn {
