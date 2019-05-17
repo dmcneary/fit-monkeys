@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./pages/Landing/";
+import Dashboard from "./pages/Dashboard/";
+import Challenges from "./pages/Challenges/";
+import Login from "./pages/Login/";
+import Signup from "./pages/Signup/";
 import axios from "axios";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
-import Landing from "./pages/Landing";
-import Dashboard from "./pages/Dashboard";
 import AllActivities from "./pages/AllActivities";
 import NewActivity from "./pages/NewActivity";
 import ActivityDetail from "./pages/ActivityDetail";
-import Challenges from "./pages/Challenges";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import './App.css';
 import Navbar from './components/NavbarLoggedIn';
@@ -32,7 +32,7 @@ class App extends Component {
     this.getUser()
   }
 
-  updateUser (userObject) {
+  updateUser(userObject) {
     this.setState(userObject)
   }
 
@@ -57,7 +57,9 @@ class App extends Component {
     })
   }
 
-  render () {
+  render() {
+    console.log('AllActivities', AllActivities)
+    console.log('Landing', Landing)
     return (
       <Router>
       {(this.state.loggedIn && this.state.user) ?

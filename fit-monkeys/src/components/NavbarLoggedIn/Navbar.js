@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css"
+import "../Header/Header.css"
 import axios from "axios";
 
 class Navbar extends Component {

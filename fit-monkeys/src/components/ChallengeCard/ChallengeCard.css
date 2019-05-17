@@ -1,5 +1,5 @@
 .card {
-    background: #fff;
+    background: #b3c3dd;
     border-radius: 2px;
     height: 385px;
     margin: 1rem;
@@ -7,10 +7,21 @@
     width: 325px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #37393d;
+  }
+
+  strong {
+    color: black;
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
   }
   
   .card > .img-container {
     height: 60%;
+    height: 200px;
     overflow: hidden;
     text-align: center;
     background:white;
