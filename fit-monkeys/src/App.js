@@ -11,18 +11,16 @@ import Footer from "./components/Footer"
 import AllActivities from "./pages/AllActivities";
 import NewActivity from "./pages/NewActivity";
 import ActivityDetail from "./pages/ActivityDetail";
-// import Challenges from "./pages/Challenges";
 import NoMatch from "./pages/NoMatch";
-// import Landing from "./pages/Landing";
 import './App.css';
+import Navbar from './components/NavbarLoggedIn';
 
 class App extends Component {
-
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       loggedIn: false,
-      user: null
+      username: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -64,29 +62,32 @@ class App extends Component {
     console.log('Landing', Landing)
     return (
       <Router>
-        {//conditional routing here: logged in or nah
-        }
-        <Header updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        <div>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/all-activities" component={AllActivities} />
-            <Route exact path="/activities/:id" component={ActivityDetail} />
-            <Route exact path="/newactivity" component={NewActivity} />
-            <Route exact path="/challenges" component={Challenges} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            {/* <Route exact path="/" component={AllActivities} /> */}
-            {/* <Route exact path="/activities/:id" component={ActivityDetail} /> */}
-            {/* <Route exact path="/newactivity" component={NewActivity} /> */}
-            {/* <Route exact path="/login" component={Login} /> */}
-            {//<Route component={NoMatch} />
-            }
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
+      {(this.state.loggedIn && this.state.user) ?
+      <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />:
+      <Header />}
+      <div>
+        <Switch>
+          <Route exact path="/login" 
+          render={(props) => <Login {...props} loggedIn={this.state.loggedIn} />}
+          />
+          <Route exact path="/dashboard" 
+          render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
+          <Route exact path="/all-activities" component={AllActivities} />
+          <Route exact path="/activities/:id" component={ActivityDetail} />
+          <Route exact path="/newactivity" 
+          render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
+          <Route exact path="/challenges" component={Challenges} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/" 
+          render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
     );
   }
 }

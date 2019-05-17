@@ -18,8 +18,12 @@ function ChallengeCard(props) {
                     </li>
                     <li>
                         <strong>Bananas:</strong>
-                         {props.bananas}
-                        <img alt={props.name} src={img}/>
+                         {/* {props.bananas} */}
+                         {(() => {
+                             return new Array(props.bananas).fill(
+                                <img alt={props.name} src={img} />
+                             )
+                         })()}
                     </li>
                 </ul>
             </div>

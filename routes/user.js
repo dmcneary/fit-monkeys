@@ -43,6 +43,7 @@ router.post(
         var userInfo = {
             username: req.user.username
         };
+        console.log(req.user.username + " is logged in")
         res.send(userInfo);
     }
 )

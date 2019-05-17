@@ -5,13 +5,9 @@ const NoMatch = () => (
   <Container fluid>
     <Row>
       <Col size="md-12">
-        <div>
-          <h1>404 Page Not Found</h1>
-          <h1>
-            <span role="img" aria-label="Face With Rolling Eyes Emoji">
-              🙄
-            </span>
-          </h1>
+        <div className = "mr-auto">
+          <h1>Doing a little off-roading?</h1>
+          <h3>Sorry, that page was not found.</h3>
         </div>
       </Col>
     </Row>

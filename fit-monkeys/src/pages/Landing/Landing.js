@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import SignUpBtn from "../../components/Buttons/SignUp";
-// import Jumbotron from "../../components/Jumbotron";
-// import Footer from "../../components/Footer";
-// import Header from "../../components/Header";
 import { Card } from "react-bootstrap";
 import { Button, ButtonToolbar } from "react-bootstrap";
 import { Carousel } from "react-bootstrap";
 import { Col, Row, Container } from "../../components/Grid";
+import Jumbotron from "../../components/Jumbotron";
+// import Card from "../../components/Card"
+import ChallengeCard from "../../components/ChallengeCard"
+// import Image from "../../Images"
 import card from "../../utils/card.json";
 import img3 from "../../Images/girlHike.jpg"
 import img4 from "../../Images/runBeach.jpg"
