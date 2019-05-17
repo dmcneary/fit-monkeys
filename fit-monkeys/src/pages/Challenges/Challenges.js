@@ -49,7 +49,7 @@ class Challenge extends Component {
                 <Wrapper className="wrapper">
                
                     {this.state.card.map(card => (
-                        <ChallengeCard
+                        <ChallengeCard 
                             removeCard={this.removeCard}
                             id={card.id}
                             key={card.id}

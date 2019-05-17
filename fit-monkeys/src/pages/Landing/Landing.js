@@ -36,7 +36,7 @@ class Landing extends Component {
                             <Carousel.Caption>
                                 <h3 className="h3Color2">Join A Challenge</h3>
                                 <p></p>
-                                <ButtonToolbar>
+                                <ButtonToolbar className="btn-toolbar">
                                     <Link to="/login">
                                         <Button className="Btn" type="submit">Sign Up</Button>
                                     </Link>
@@ -52,7 +52,7 @@ class Landing extends Component {
                             <Carousel.Caption>
                                 <h3 className="h3Color">See What Your Friends Are Doing</h3>
                                 <p></p>
-                                <ButtonToolbar>
+                                <ButtonToolbar className="btn-toolbar">
                                     <Link to="/login">
                                         <Button className="Btn" type="submit">Sign Up</Button>
                                     </Link>
@@ -68,7 +68,7 @@ class Landing extends Component {
                             <Carousel.Caption>
                                 <h3>Track Your Activity</h3>
                                 <p></p>
-                                <ButtonToolbar>
+                                <ButtonToolbar className="btn-toolbar">
                                     <Link to="/login">
                                         <Button className="Btn" type="submit">Sign Up</Button>
                                     </Link>

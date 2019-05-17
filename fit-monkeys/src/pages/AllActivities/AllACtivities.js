@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import ActsTable from "../../components/Table";
@@ -145,9 +145,9 @@ class AllActivities extends Component {
                         </a>    
                     </ActsTable>
                 ))} */}
-                <Footer>
+                {/* <Footer>
 
-                </Footer>
+                </Footer> */}
             </div>
         )
     }

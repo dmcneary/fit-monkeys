@@ -1,7 +1,13 @@
 
 .imgC {
-    height: 675px;
+    max-height: 675px;
+    width: 100%;
     text-align: center;
+    /* background: url('backgroundimage.jpg') no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .imgB {
@@ -28,7 +34,12 @@
 }
 
 .imgHero {
-   height: 675px;
+   max-height: 675px;
+   width: 100%;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
 }
 
 .Btn {
@@ -45,6 +56,10 @@
 .Btn:hover {
     background-color: grey;
     color: white;
+  }
+
+  .btn-toolbar {
+      justify-content: center;
   }
 
   h3 {
