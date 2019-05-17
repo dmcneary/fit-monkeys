@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Alert from "../../components/Alert"
 import { Input } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
@@ -69,6 +70,9 @@ class Signup extends Component {
         <Container fluid>
             <Row>
                 <Col size="6">
+                    {(this.state.message) ?
+                    <Alert message={this.state.message} /> :
+                    <div>Please fill out all fields!</div>}
                     <form>
                         <p>First name: </p>
                         <Input value={this.state.firstName}
@@ -104,10 +108,8 @@ class Signup extends Component {
                         onChange={this.handleInputChange}
                         name="location"
                         placeholder="Location"/>                        
-                    </form>
-                    {//conditionally render alert
-                    }
                     <button className="btn btn-primary" onClick={this.handleSubmit} type="submit">Register</button>
+                    </form>
                 </Col>
                 <Col size="6">
                 <p>Or,</p>
