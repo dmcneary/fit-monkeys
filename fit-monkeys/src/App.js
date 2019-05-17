@@ -16,8 +16,8 @@ import './App.css';
 import Navbar from './components/NavbarLoggedIn';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       loggedIn: false,
       username: null
@@ -61,18 +61,18 @@ class App extends Component {
     return (
       <Router>
       {(this.state.loggedIn && this.state.user) ?
-      <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/> :
+      <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>:
       <Header />}
       <div>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/all-activities" component={AllActivities} />
           <Route exact path="/activities/:id" component={ActivityDetail} />
           <Route exact path="/newactivity" component={NewActivity} />
           <Route exact path="/challenges" component={Challenges} />
-          <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/" component={Landing} />
           <Route component={NoMatch} />
         </Switch>
       </div>

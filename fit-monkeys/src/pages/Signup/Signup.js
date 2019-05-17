@@ -1,34 +1,32 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
 import axios from "axios";
 import { Input } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer";
-
 
 class Signup extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
             firstName: "",
             lastName: "",
 			username: '',
 			password: '',
             gender: "",
-            age: 0,
+            age: 13,
             location: "",
-            redirect: false
+            message: ""
+            //redirect: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleInputChange = this.handleInputChange.bind(this)
     }
     
-    handleRedirect = () => {
+    /*handleRedirect = () => {
         if (this.state.redirect) {
           return <Redirect to='/login' />
         }
-      }
+      }*/
 
 	handleInputChange(event) {
 		this.setState({
@@ -36,10 +34,10 @@ class Signup extends Component {
 		})
 	}
 	handleSubmit(event) {
-        event.preventDefault()
-		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
-
+        event.preventDefault();
+		console.log('sign-up handleSubmit, username: ');
+		console.log(this.state.username);
+        const { history } = this.props;
 		//request to server to add a new username/password
 		axios.post('/user', {
             firstName: this.state.firstName,
@@ -51,19 +49,18 @@ class Signup extends Component {
             location: this.state.location
 		})
 			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
+                console.log(response)
+				if (!response.data.errmsg) { //redirect to login page
 					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirect: true
-					}).then(this.handleRedirect);
+					history.push("/login");
 				} else {
-					console.log('username already taken')
+                    console.log('username already taken')
+                    this.setState({message: "That username is already in use. Please pick a different username."})
 				}
 			}).catch(error => {
 				console.log('signup error: ')
 				console.log(error)
-
+                this.setState({message: "Something went wrong...oops! Please try again later."})
 			})
 	}
 
@@ -108,6 +105,8 @@ class Signup extends Component {
                         name="location"
                         placeholder="Location"/>                        
                     </form>
+                    {//conditionally render alert
+                    }
                     <button className="btn btn-primary" onClick={this.handleSubmit} type="submit">Register</button>
                 </Col>
                 <Col size="6">
@@ -117,7 +116,6 @@ class Signup extends Component {
                 </Link>
                 </Col>
             </Row>
-            <Footer />
         </Container>
         );
     }
