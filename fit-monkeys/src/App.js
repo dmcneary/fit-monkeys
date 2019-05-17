@@ -61,18 +61,26 @@ class App extends Component {
     return (
       <Router>
       {(this.state.loggedIn && this.state.user) ?
-      <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>:
+      <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />:
       <Header />}
       <div>
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/login" 
+          render={(props) => <Login {...props} loggedIn={this.state.loggedIn} />}
+          />
+          <Route exact path="/dashboard" 
+          render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
           <Route exact path="/all-activities" component={AllActivities} />
           <Route exact path="/activities/:id" component={ActivityDetail} />
-          <Route exact path="/newactivity" component={NewActivity} />
+          <Route exact path="/newactivity" 
+          render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
           <Route exact path="/challenges" component={Challenges} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" 
+          render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
           <Route component={NoMatch} />
         </Switch>
       </div>
