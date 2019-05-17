@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Header from "../../components/Header";
 import { Col, Row, Container } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
@@ -11,12 +10,18 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
-            redirectTo: null
+            redirect: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
   
     }
+
+    handleRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/dashboard' />
+        }
+      }
 
     handleChange(event) {
         this.setState({
@@ -44,8 +49,8 @@ class LoginForm extends Component {
                     })
                     // update the state to redirect to home
                     this.setState({
-                        redirectTo: '/'
-                    })
+                        redirect: true
+                    }).then(this.handleRedirect);
                 }
             }).catch(error => {
                 console.log('login error: ')
@@ -55,8 +60,8 @@ class LoginForm extends Component {
     }
 
     render() {
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        if (this.state.redirect) {
+            return <Redirect to={'/dashboard'} />
         } else {
             return (
                 <Container fluid>
@@ -94,11 +99,7 @@ class LoginForm extends Component {
                         </div>
                         <div className="form-group ">
                             <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
-                                onClick={this.handleSubmit}
-                                type="submit">Login</button>
+                            <button className="btn btn-primary" onClick={this.handleSubmit} type="submit">Login</button>
                         </div>
                     </form>
                     </Row>

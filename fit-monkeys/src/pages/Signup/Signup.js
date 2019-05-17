@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom'
 import axios from "axios";
-import { Input, SignupBtn } from "../../components/Form";
+import { Input } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
@@ -16,11 +17,19 @@ class Signup extends Component {
 			password: '',
             gender: "",
             age: 0,
-            location: ""
+            location: "",
+            redirect: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleInputChange = this.handleInputChange.bind(this)
-	}
+    }
+    
+    handleRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/login' />
+        }
+      }
+
 	handleInputChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -46,8 +55,8 @@ class Signup extends Component {
 				if (!response.data.errmsg) {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
-						redirectTo: '/user/login'
-					})
+						redirect: true
+					}).then(this.handleRedirect);
 				} else {
 					console.log('username already taken')
 				}
@@ -99,7 +108,7 @@ class Signup extends Component {
                         name="location"
                         placeholder="Location"/>                        
                     </form>
-                    <SignupBtn onClick={this.handleSubmit} type="submit"/>
+                    <button className="btn btn-primary" onClick={this.handleSubmit} type="submit">Register</button>
                 </Col>
                 <Col size="6">
                 <p>Or,</p>
