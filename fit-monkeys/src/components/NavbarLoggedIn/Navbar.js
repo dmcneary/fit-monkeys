@@ -1,5 +1,5 @@
 import React from "react";
-import { LogOut } from "../Buttons/"
+import LogOut from "../Buttons/LogOut"
 
 const Navbar = () => {
   return (

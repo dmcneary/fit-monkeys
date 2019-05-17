@@ -1,5 +1,75 @@
-img {
-    width: 325px;
-    height: 300px;
+
+.imgC {
+    height: 675px;
     text-align: center;
+}
+
+.imgB {
+    height: 675px;
+    text-align: center;
+}
+
+.imgA {
+    height: 675px;
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+}
+
+.JumboPic {
+    /* background: url('../../Images/runSun.jpg') no-repeat 0 0; */
+    background: url(https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/B25K+620.jpg);
+}
+
+.card {
+ width: 700px;
+}
+
+.imgHero {
+   height: 675px;
+}
+
+.Btn {
+    color:white;
+    background-color: #1F618D;
+    border: none;
+    border-radius: 17px;
+    padding: 12px 28px;
+    display: flex; 
+    justify-content: center; 
+    font-weight: bold;
+}
+
+.Btn:hover {
+    background-color: grey;
+    color: white;
+  }
+
+  h3 {
+      color: rgb(228, 224, 224);
+      -webkit-text-stroke-width: .5px;
+      -webkit-text-stroke-color: darkslategray;
+      font-weight: bold;
+      font-size: 40px;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+  }
+
+  .h3Color {
+    color: #1F618D;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: darkslategray;
+    font-weight: bold;
+    font-size: 40px;
+    /* font-family: 'Roboto Condensed', sans-serif; */
+}
+
+.h3Color2 {
+    color: white;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: darkslategray;
+    font-weight: bold;
+    font-size: 40px;
+    /* font-family: 'Roboto Condensed', sans-serif; */
 }

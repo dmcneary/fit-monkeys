@@ -1,66 +1,97 @@
 import React, { Component } from "react";
-// import SignUpBtn from "../../components/Buttons/SignUp";
+import SignUpBtn from "../../components/Buttons/SignUp";
 import Jumbotron from "../../components/Jumbotron";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-// import Card from "../../components/Card"
-import ChallengeCard from "../../components/ChallengeCard"
+import { Card } from "react-bootstrap";
+import { Button, ButtonToolbar } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import { Col, Row, Container } from "../../components/Grid";
-// import Image from "../../Images"
 import card from "../../utils/card.json";
-import img from "../../Images/monkeypic.jpg"
-import img1 from "../../Images/bike-monkey.jpg"
-import img2 from "../../Images/monkey-on-bicycle-5.png"
+import img3 from "../../Images/girlHike.jpg"
+import img4 from "../../Images/runBeach.jpg"
+import img5 from "../../Images/bikeWoman.jpg"
 import "./Landing.css";
+import { Link } from "react-router-dom";
 
 
 class Landing extends Component {
 
     state = {
         card
-      };
-    
+    };
+
 
     render() {
         return (
             <div>
-                <Header>
-
-                </Header>
                 <Container fluid>
-                    <Jumbotron>
-                        <h1>Track your activities. Join a challenge. Find a friend.</h1>
-                    </Jumbotron>
+                    <Carousel className="imgHero">
+                        <Carousel.Item>
+                            <img 
+                                className="d-block w-100 imgC"
+                                src={img3}
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <h3 className="h3Color2">Join A Challenge</h3>
+                                <p></p>
+                                <ButtonToolbar>
+                                    <Link to="/login">
+                                        <Button className="Btn" type="submit">Sign Up</Button>
+                                    </Link>
+                                </ButtonToolbar>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img 
+                                className="d-block w-100 imgC"
+                                src={img4}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3 className="h3Color">See What Your Friends Are Doing</h3>
+                                <p></p>
+                                <ButtonToolbar>
+                                    <Link to="/login">
+                                        <Button className="Btn" type="submit">Sign Up</Button>
+                                    </Link>
+                                </ButtonToolbar>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img 
+                                className="d-block w-100 imgC"
+                                src={img5}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>Track Your Activity</h3>
+                                <p></p>
+                                <ButtonToolbar>
+                                    <Link to="/login">
+                                        <Button className="Btn" type="submit">Sign Up</Button>
+                                    </Link>
+                                </ButtonToolbar>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
                     <Row>
-                        <Col size="md-6">
-                            <img src={img1} class="mx-auto d-block" alt="Running" align="middle"  />
-                            <img src={img} class="mx-auto d-block" alt="Running" align="middle"  />
-                            <img src={img2} class="mx-auto d-block" alt="Running" align="middle"  />
-                        </Col>
-                        <Col size="md-6 sm-12">
-                            {/* <SignUpBtn
-                                onClick={this.handleFormSubmit}
-                            >
-                                Sign Up
-                      </SignUpBtn> */}
-                            <p>insert login button here</p>
-
-                            
-                        </Col>
+                        {/* <Card className="text-center">
+                            <Card.Header>Featured</Card.Header>
+                            <Card.Body>
+                                <Card.Title>Special title treatment</Card.Title>
+                                <Card.Text>
+                                    With supporting text below as a natural lead-in to additional content.
+                                </Card.Text>
+                                <Link to="/login">
+                                    <SignUpBtn value="Login with existing account" />
+                                </Link>
+                            </Card.Body>
+                            <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                        </Card> */}
                     </Row>
                 </Container>
-                {/* <ChallengeCard
-            id={card.id}
-            key={card.id}
-            name={card.name}
-            image={card.image}
-            bananas={card.bananas}
-            location={card.location}
-          /> */}
-               
-                <Footer>
-
-                </Footer>
             </div>
         );
     }

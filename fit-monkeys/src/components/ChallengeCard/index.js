@@ -17,8 +17,9 @@ function ChallengeCard(props) {
                         <strong>Location:</strong> {props.location}
                     </li>
                     <li>
-                        <strong>Bananas:</strong> {props.bananas}
-                        <img alt={props.name} src={img} />
+                        <strong>Bananas:</strong>
+                         {/* {props.bananas}
+                        <img alt={props.name} src={img} /> */}
                     </li>
                 </ul>
             </div>

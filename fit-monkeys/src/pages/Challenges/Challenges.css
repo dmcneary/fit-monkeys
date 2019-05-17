@@ -3,3 +3,14 @@
     width: 80%;
 }
 
+ .Jumbo {
+     /* color:rgb(59, 83, 100); */
+     color: white;
+     background: none;
+     background-image: url("../../Images/hike2.jpeg");
+     height: 350px;
+ }
+
+ .wrapper {
+     background: none;
+ }

@@ -1,50 +1,62 @@
 import React, { Component } from "react";
-//import Header from "../../components/Header";
+import axios from "axios";
 import { Input, SignupBtn } from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
-//import API from "../../utils/API";
 import { Link } from "react-router-dom";
-//import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
 
 class Signup extends Component {
-    state = {
-        firstName: "",
-        lastName: "",
-        gender: "",
-    }
+	constructor() {
+		super()
+		this.state = {
+            firstName: "",
+            lastName: "",
+			username: '',
+			password: '',
+            gender: "",
+            age: 0,
+            location: ""
+		}
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleInputChange = this.handleInputChange.bind(this)
+	}
+	handleInputChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+	handleSubmit(event) {
+        event.preventDefault()
+		console.log('sign-up handleSubmit, username: ')
+		console.log(this.state.username)
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
-    };
-    
-    /* handleNewUserSubmit = event => {
-    event.preventDefault();
-    if (this.state.firstName && this.state.lastName) {
-        this.setState({
-            redirect: true
-          });
-        API.newUser({
+		//request to server to add a new username/password
+		axios.post('/user', {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+			username: this.state.username,
+			password: this.state.password,
+            gender: this.state.gender,
+            age: this.state.age,
+            location: this.state.location
+		})
+			.then(response => {
+				console.log(response)
+				if (!response.data.errmsg) {
+					console.log('successful signup')
+					this.setState({ //redirect to login page
+						redirectTo: '/user/login'
+					})
+				} else {
+					console.log('username already taken')
+				}
+			}).catch(error => {
+				console.log('signup error: ')
+				console.log(error)
 
-        })
-        .then(res => 
-            this.handleRedirectLogin)
-        .catch(err => console.log(err))
-    }
-    };
-
-    handleRedirectLogin = () => {
-        <Route exact path="/" render={() => (
-            loggedIn ? (
-              <Redirect to="/dashboard"/>
-            ) : (
-              <PublicHomePage/>
-            )
-          )}/>
-    } */
+			})
+	}
 
     render() {
         return (
@@ -87,7 +99,7 @@ class Signup extends Component {
                         name="location"
                         placeholder="Location"/>                        
                     </form>
-                    <SignupBtn />
+                    <SignupBtn onClick={this.handleSubmit} type="submit"/>
                 </Col>
                 <Col size="6">
                 <p>Or,</p>
@@ -96,10 +108,10 @@ class Signup extends Component {
                 </Link>
                 </Col>
             </Row>
-            
+            <Footer />
         </Container>
         );
     }
 }
-//insert footer component at line 74, header at 49
+
 export default Signup;
