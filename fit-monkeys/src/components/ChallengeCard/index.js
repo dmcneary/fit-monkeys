@@ -1,6 +1,6 @@
 import React from "react";
 import "./ChallengeCard.css";
-import img from '../../Images/bananathumb.jpeg'
+import img from '../../Images/banana3.png'
 
 function ChallengeCard(props) {
     return (
@@ -17,8 +17,13 @@ function ChallengeCard(props) {
                         <strong>Location:</strong> {props.location}
                     </li>
                     <li>
-                        <strong>Bananas:</strong> {props.bananas}
-                        <img alt={props.name} src={img} />
+                        <strong>Bananas:</strong>
+                         {/* {props.bananas} */}
+                         {(() => {
+                             return new Array(props.bananas).fill(
+                                <img alt={props.name} src={img} />
+                             )
+                         })()}
                     </li>
                 </ul>
             </div>
