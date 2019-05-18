@@ -30,10 +30,11 @@ class NewActivity extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
+        const history = this.props.history
 		console.log('new activity handleSubmit, username: ');
 		console.log(this.state.username);
 		//request to server to add new activity
-		axios.post('/', {
+		axios.post('/api/activities', {
             userId: this.state.username,
             actTitle: this.state.actTitle,
             actDesc: this.state.actDesc,
@@ -43,13 +44,13 @@ class NewActivity extends Component {
             distance: this.state.distance,
             sportType: this.state.sportType
 		})
-			/*.then(req, res => {
+			.then(res => {
                 console.log(res)
 				if (!res.data.errmsg) { //redirect to activity detail page
 					console.log('activity create successful')
-					history.push("/activities/:id");
+					history.push("/activities/" + res.data._id);
 				}
-			})*/.catch(error => {
+			}).catch(error => {
 				console.log('activity creation error: ')
 				console.log(error)
                 this.setState({message: "Something went wrong...oops! Please try again later."})

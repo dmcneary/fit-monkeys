@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise
 
 const uri = 'mongodb://localhost:27017/fit-monkeys' 
 
-mongoose.connect(uri).then(
+mongoose.connect(uri, {useNewUrlParser: true}).then(
     () => { 
         console.log('Connected to Mongo');
         
