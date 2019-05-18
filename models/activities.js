@@ -4,12 +4,14 @@ mongoose.promise = Promise;
 
 
 const activitySchema = new Schema({
-	belongsTo: { type: String, unique: true, required: true },
+    userId: { type: String, unique: false, required: true },
+    actTitle: { type: String, unique: false, required: true },
+    actDesc: { type: String, unique: false, required: true },
+    actDate: { type: Date, unique: false, required: true },
 	distance: { type: Number, unique: false, required: true },
-	duration: { type: String, unique: false, required: true },
+    durationMins: { type: Number, unique: false, required: true },
+    durationSecs: { type: Number, unique: false, required: true },
     sportType: { type: String, unique: false, required: true },
-    date: { type: Date, unique: false, default: Date.now, required: true },
-    description: { type: String, unique: false, required: true }
 });
 
 const Activity = mongoose.model('user', activitySchema);
