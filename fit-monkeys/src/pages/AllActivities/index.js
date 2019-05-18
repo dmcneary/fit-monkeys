@@ -1,1 +1,1 @@
-export { default } from "./AllActivities.js";
+export { default } from "./AllActivities";
