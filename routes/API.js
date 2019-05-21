@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const activityController = require("../controllers/activityController");
 
-
-router.route("/activities")
+router.route("/all-activities")
   .get(activityController.findAll)
+  
+router.route("/activities")
+  .get(activityController.findAllByUser)
   .post(activityController.create);
-
 
 router
   .route("/activities/:id")

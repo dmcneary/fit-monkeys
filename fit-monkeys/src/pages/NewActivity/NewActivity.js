@@ -8,8 +8,6 @@ class NewActivity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: this.props.loggedIn,
-            username: this.props.user,
             actTitle: "",
             actDesc: "",
             durationMins: 0,
@@ -20,6 +18,8 @@ class NewActivity extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        console.log(this.props.username);
+        console.log(this.state.username);
     }
 
     handleInputChange(event) {
@@ -32,10 +32,10 @@ class NewActivity extends Component {
         event.preventDefault();
         const history = this.props.history
 		console.log('new activity handleSubmit, username: ');
-		console.log(this.state.username);
+		console.log(this.props.username);
 		//request to server to add new activity
 		axios.post('/api/activities', {
-            userId: this.state.username,
+            userId: this.props.username,
             actTitle: this.state.actTitle,
             actDesc: this.state.actDesc,
             actDate: this.state.actDate,
