@@ -3,6 +3,11 @@
     font-size: 45px;
 }
 
+.navbar-brand:hover {
+
+  color: #8c8b8b;
+}
+
 .header {
     background-color: none;
     border-bottom: 1px solid #8c8b8b;
@@ -11,6 +16,10 @@
     /* font-family: 'Noto Sans TC', sans-serif; */
 }
 
+/* .header:hover {
+  color: #1F618D;
+} */
+
 .nav-log {
     color:#1F618D;
     font-size: 25px;
@@ -18,6 +27,11 @@
     text-align: right;
     /* width: 100%; */
     /* padding-right: 10px; */
+}
+
+.header {
+  position: sticky;
+  background-color: white;
 }
 
   @media screen and (max-width: 600px) {

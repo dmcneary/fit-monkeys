@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { Col, Row, Container } from "../../components/Grid";
+import "./Login.css";
+import { Jumbotron, Container, Row, Col } from "react-bootstrap";
 
 class LoginForm extends Component {
     constructor(props) {
@@ -65,47 +66,56 @@ class LoginForm extends Component {
             return <Redirect to={'/dashboard'} />
         } else {
             return (
-                <Container fluid>
-                    <Row>
-                        <Col size="xs-12 md-6 offset-md-6">
-                            <h4>Login</h4>
-                            <form className="form-horizontal">
-                                <div className="form-group">
-                                    <div className="col-1 col-ml-auto">
-                                        <label className="form-label" htmlFor="username">Username</label>
+                <Jumbotron className="JumboLogin">
+                <div className="container">
+                    <div className="container containerLog">
+                        <Row>
+                            <Container className="contLog">
+                            <Col lg="auto">
+                                {/* <h5>Login</h5> */}
+                                <br />
+                                <form className="form-horizontal">
+                                    <div className="form-group">
+                                        <div className="col-1 col-ml-auto">
+                                            <label className="form-label" htmlFor="username">Username</label>
+                                        </div>
+                                        <div className="col-3 col-mr-auto">
+                                            <input className="form-input"
+                                                type="text"
+                                                id="username"
+                                                name="username"
+                                                placeholder="Username"
+                                                value={this.state.username}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="col-3 col-mr-auto">
-                                        <input className="form-input"
-                                            type="text"
-                                            id="username"
-                                            name="username"
-                                            placeholder="Username"
-                                            value={this.state.username}
-                                            onChange={this.handleChange}
-                                        />
+                                    <div className="form-group">
+                                        <div className="col-1 col-ml-auto">
+                                            <label className="form-label" htmlFor="password">Password: </label>
+                                        </div>
+                                        <div className="col-3 col-mr-auto">
+                                            <input className="form-input"
+                                                placeholder="password"
+                                                type="password"
+                                                name="password"
+                                                value={this.state.password}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form-group">
-                                    <div className="col-1 col-ml-auto">
-                                        <label className="form-label" htmlFor="password">Password: </label>
+                                    <div className="container">
+                                        <div className="form-group ">
+                                            <button className="btn btn-primary btnLog" onClick={this.handleSubmit} type="submit">Login</button>
+                                        </div>
                                     </div>
-                                    <div className="col-3 col-mr-auto">
-                                        <input className="form-input"
-                                            placeholder="password"
-                                            type="password"
-                                            name="password"
-                                            value={this.state.password}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group ">
-                                    <button className="btn btn-primary" onClick={this.handleSubmit} type="submit">Login</button>
-                                </div>
-                            </form>
-                        </Col>
-                    </Row>
-                </Container>
+                                </form>
+                            </Col>
+                            </Container>
+                        </Row>
+                    </div>
+                </div>
+                </Jumbotron>
             )
         }
     }

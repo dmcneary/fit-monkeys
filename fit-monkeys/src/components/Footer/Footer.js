@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const Footer = () => (
 
-    <footer className="page-footer font-small special-color-dark pt-4">
+    <footer className="page-footer font-small special-color-dark pt-4 foot">
         <div className="container">
             <div className="row">
                 <div className="col-md-3 mb-md-0 mb-3">

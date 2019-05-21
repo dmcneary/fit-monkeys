@@ -4,7 +4,7 @@ import "./Header.css";
 
 const Header = () => {
         return (
-            <nav className="header navbar navbar-expand-lg">
+            <nav className="header navbar sticky-top navbar-expand-lg">
                 <a className="navbar-brand" href="/">Fit Monkeys</a>
                 <div>
                     <Link to="/" className="btn btn-link text-secondary">

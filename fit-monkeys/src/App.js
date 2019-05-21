@@ -11,6 +11,7 @@ import Footer from "./components/Footer"
 import AllActivities from "./pages/AllActivities";
 import NewActivity from "./pages/NewActivity";
 import ActivityDetail from "./pages/ActivityDetail";
+import ChallengeSignUp from "./pages/ChallengeSignUp";
 import NoMatch from "./pages/NoMatch";
 import './App.css';
 import Navbar from './components/NavbarLoggedIn';
@@ -82,6 +83,10 @@ class App extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/" 
           render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          />
+          <Route exact path="/ChallengeSignUp" component={ChallengeSignUp} />
+          <Route exact path="/" 
+          // render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
           />
           <Route component={NoMatch} />
         </Switch>

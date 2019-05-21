@@ -1,0 +1,21 @@
+.JumboSign {
+    /* color:rgb(59, 83, 100); */
+    color: white;
+    background: none;
+    /* background: url("../../Images/sky.jpg") no-repeat center center; */
+    background-color: rgba(197, 213, 235, 0.92);
+    /* width: auto; */
+    /* background-repeat: no-repeat; */
+    height: 300px;
+    background-size: cover; 
+    width: 100%;
+}
+
+.JumboChal{
+    /* color:rgb(59, 83, 100); */
+    color: white;
+    background: none;
+    height: 350px;
+    background-size: cover; 
+    width: 100%;
+}
