@@ -22,15 +22,3 @@ const Header = () => {
     }
 
 export default Header;
-
-// const Header = () => (
-//     <nav className="header navbar navbar-expand-lg justify-content-between">
-//         <a className="navbar-brand" href="/">
-//             Fit Monkeys
-//     </a>
-//         <a className="nav-log" href="/">
-//             Log In
-//     </a>
-
-//     </nav>
-// );

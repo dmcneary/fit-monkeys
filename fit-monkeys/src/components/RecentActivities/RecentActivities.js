@@ -1,24 +1,25 @@
 import React, { Component } from "react";
+import axios from "axios";
 
-class RecentUserActivites extends Component {
+class RecentUserActivities extends Component {
 
     state = {
         activities: []
     }
 
-    /*componentDidMount() {
+    componentDidMount() {
         this.getRecentActivities();
       }
 
     getRecentActivities = () => {
-        API.getUserActivities()
+        axios.get("/activities/")
           .then(res =>
             this.setState({
               activities: res.data
             })
           )
           .catch(err => console.log(err));
-      };*/
+      };
 
     render() {
       return (
@@ -34,4 +35,4 @@ class RecentUserActivites extends Component {
     }
 }
 
-export default RecentUserActivites;
+export default RecentUserActivities;
