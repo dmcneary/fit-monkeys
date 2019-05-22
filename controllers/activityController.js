@@ -3,15 +3,16 @@ const activity = require("../models/activities");
 module.exports =  {
  findAll: function(req, res) {
    activity
-     .find(req.query)
+     .find({ })
      .sort({ date: -1 })
      .then(dbModel => res.json(dbModel))
      .catch(err => res.status(422).json(err));
  },
  findAllByUser: function(req, res) {
-   console.log(req);
+   console.log(req.user.username)
   activity
-    .findById({userId: req.body.username })
+    .find({ userId: req.user.username })
+    .sort({ date: -1 })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 },

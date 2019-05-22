@@ -38,8 +38,6 @@ class App extends Component {
 
   getUser() {
     axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
         console.log(response.data.user.username);
@@ -47,7 +45,6 @@ class App extends Component {
           loggedIn: true,
           username: response.data.user.username
         });
-        console.log("set state.username to " + this.state.username)
       } else {
         console.log('Get user: no user');
         this.setState({
@@ -73,7 +70,8 @@ class App extends Component {
           render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/all-activities" component={AllActivities} />
-          <Route exact path="/activities/:id" component={ActivityDetail} />
+          <Route exact path="/activities/:id" render={(props) => <ActivityDetail {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
+          />
           <Route exact path="/newactivity" 
           render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
