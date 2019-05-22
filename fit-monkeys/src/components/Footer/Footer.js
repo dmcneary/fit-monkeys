@@ -12,10 +12,10 @@ const Footer = () => (
             
             <div className="container text-center">
                 <a href="https://github.com/dmcneary/final-project"><i className="fa fa-github"></i></a>
-                <a href="#"><i className="fa fa-facebook"></i></a>
-                <a href="#"><i className="fa fa-twitter"></i></a>
-                <a href="#"><i className="fa fa-linkedin"></i></a>
-                <a href="#"><i className="fa fa-google"></i></a>
+                <i className="fa fa-facebook"></i>
+                <i className="fa fa-twitter"></i>
+                <i className="fa fa-linkedin"></i>
+                <i className="fa fa-google"></i>
             </div>
             <br></br><br></br>
             <div className="footer-copyright text-center py-3">© 2019 Copyright:
