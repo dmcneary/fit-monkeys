@@ -2,14 +2,11 @@
     /* color:rgb(59, 83, 100); */
     color: #174869;
     background: none;
-    /* background: url("../../Images/sky.jpg") no-repeat center center; */
-    /* background-color: rgba(197, 213, 235, 0.92); */
-    /* width: auto; */
-    /* background-repeat: no-repeat; */
     height: 300px;
     background-size: cover; 
     width: 100%;
-    margin-top: -45px;
+    margin-top: -75px;
+    
 }
 
 .JumboChal{
@@ -22,14 +19,14 @@
 }
 
 .srcPic {
-    height: 100px;
+    height: 120px;
     /* text-align: center; */
     /* display: block; */
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: -20px;
+    margin-top: -60px;
 }
 
 .chalName {
@@ -38,4 +35,21 @@
     margin-top: 20px;
     color: #0099cc;
 }
+
+.jumboSignBody {
+    /* background-color: blue; */
+    height: 100%;
+    width: 100%;
+    padding-top: -1px;
+    margin-top: 100px;
+    background: url("../../Images/abstract2.jpg") no-repeat center center;
+    /* opacity: .5; */
+    border: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+
 

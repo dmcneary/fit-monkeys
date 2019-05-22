@@ -9,9 +9,9 @@ import { Jumbotron } from "react-bootstrap";
 
 
 class ChallengeSignup extends Component {
-constructor(props){
-    super(props);
-}
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         console.log("props", this.props.location);
@@ -25,7 +25,11 @@ constructor(props){
                         <img className="srcPic" src={this.props.location.img} />
                     </Container>
                 </Jumbotron>
-                <ChallengeForm className="cForm" />
+                <Jumbotron className="jumboSignBody">
+                    <div className="FormText">
+                        <ChallengeForm className="cForm" />
+                    </div>
+                </Jumbotron>
                 <Row>
                 </Row>
             </Container>
