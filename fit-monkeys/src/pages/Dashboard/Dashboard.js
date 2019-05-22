@@ -5,13 +5,13 @@ import RecentActivities from "../../components/RecentActivities";
 import Totals from "../../components/Totals";
 import { Col, Row, Container } from "../../components/Grid";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return(
     <Container fluid>
       <Row>
         <Col size="8">
           <Jumbotron>
-            <RecentActivities />
+            <RecentActivities username={props.username}/>
           </Jumbotron>
         </Col>
         <Col size="4">

@@ -1,1 +1,1 @@
-export { default } from "./AllActivities";
+export { default } from "./displayActs";

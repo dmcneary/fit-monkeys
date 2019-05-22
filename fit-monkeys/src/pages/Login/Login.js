@@ -14,9 +14,8 @@ class LoginForm extends Component {
             message: ""
             //redirect: false
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     /*handleRedirect = () => {
@@ -41,17 +40,13 @@ class LoginForm extends Component {
                 username: this.state.username,
                 password: this.state.password
             })
-            .then((req, res) => {
+            .then(res => {
                 console.log('login response: ')
                 console.log(res)
                 if (res.status === 200) {
                     // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: res.data.username
-                    });
+                    this.props.getUser();
                     // update the state to redirect to home
-                    console.log(this.props);
                     history.push("/dashboard");
                 }
             }).catch(error => {

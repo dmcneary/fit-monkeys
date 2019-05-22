@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Input, TextArea } from "../../components/Form";
 import { Row, Container } from "../../components/Grid";
+import "./NewActivity.css"
 
 class NewActivity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: this.props.loggedIn,
-            username: this.props.username,
             actTitle: "",
             actDesc: "",
-            actDate: "",
             durationMins: 0,
             durationSecs: 0,
             distance: 0,
@@ -20,6 +18,8 @@ class NewActivity extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        console.log(this.props.username);
+        console.log(this.state.username);
     }
 
     handleInputChange(event) {
@@ -32,10 +32,10 @@ class NewActivity extends Component {
         event.preventDefault();
         const history = this.props.history
 		console.log('new activity handleSubmit, username: ');
-		console.log(this.state.username);
+		console.log(this.props.username);
 		//request to server to add new activity
 		axios.post('/api/activities', {
-            userId: this.state.username,
+            userId: this.props.username,
             actTitle: this.state.actTitle,
             actDesc: this.state.actDesc,
             actDate: this.state.actDate,
@@ -80,10 +80,10 @@ class NewActivity extends Component {
                         <p>Duration: </p>
                         <Input value={this.state.durationMins}
                         onChange={this.handleInputChange}
-                        name="durationMins" size="4"/> Minutes 
+                        name="durationMins" size="2"/> Minutes 
                         <Input value={this.state.durationSecs}
                         onChange={this.handleInputChange}
-                        name="durationSecs" size="4"/> Seconds
+                        name="durationSecs" size="2"/> Seconds
                         <p>Distance (in miles): </p>
                         <Input value={this.state.distance}
                         onChange={this.handleInputChange}
@@ -98,7 +98,7 @@ class NewActivity extends Component {
                             <option value="swimming">Swimming</option>
                             <option value="rowing">Rowing</option>
                         </select>
-                        <div>
+                        <div className="submitBtn">
                             <button className="btn btn-success" onClick={this.handleSubmit} type="submit">Create Activity</button>
                         </div>
                         </form>

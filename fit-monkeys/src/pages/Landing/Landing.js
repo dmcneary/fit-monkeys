@@ -21,7 +21,7 @@ class Landing extends Component {
     state = {
         card
     };
-
+//conditional render register button/go to dashboard button
 
     render() {
         return (

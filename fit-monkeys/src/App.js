@@ -26,7 +26,7 @@ class App extends Component {
 
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
+    //this.updateUser = this.updateUser.bind(this)
   }
 
   componentDidMount() {
@@ -39,15 +39,13 @@ class App extends Component {
 
   getUser() {
     axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
-
+        console.log(response.data.user.username);
         this.setState({
           loggedIn: true,
-          user: response.data.user.username
-        })
+          username: response.data.user.username
+        });
       } else {
         console.log('Get user: no user');
         this.setState({
@@ -59,30 +57,29 @@ class App extends Component {
   }
 
   render() {
-    console.log('AllActivities', AllActivities)
-    console.log('Landing', Landing)
     return (
       <Router>
-      {(this.state.loggedIn && this.state.user) ?
+      {(this.state.loggedIn && this.state.username) ?
       <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />:
       <Header />}
       <div>
         <Switch>
           <Route exact path="/login" 
-          render={(props) => <Login {...props} loggedIn={this.state.loggedIn} />}
+          render={(props) => <Login {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} />}
           />
           <Route exact path="/dashboard" 
-          render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/all-activities" component={AllActivities} />
-          <Route exact path="/activities/:id" component={ActivityDetail} />
+          <Route exact path="/activities/:id" render={(props) => <ActivityDetail {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
+          />
           <Route exact path="/newactivity" 
-          render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/challenges" component={Challenges} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/" 
-          render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} user={this.state.username} />}
+          render={(props) => <Landing {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/ChallengeSignUp" component={ChallengeSignUp} />
           <Route exact path="/" 

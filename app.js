@@ -24,16 +24,12 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
-
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Routes
 app.use(routes)
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./fit-monkeys/build/index.html"));
-});
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
