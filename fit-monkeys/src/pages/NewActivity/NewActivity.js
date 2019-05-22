@@ -63,33 +63,33 @@ class NewActivity extends Component {
                 <Row>
                     <div className="col-xs-12 col-md-6 mx-auto">
                         <form>
-                        <p>Activity title: </p>
+                        <p className="newActP">Activity title: </p>
                         <Input value={this.state.actTitle}
                         onChange={this.handleInputChange}
                         name="actTitle"
                         placeholder="Name your activity"/>
-                        <p>Activity description: </p>
+                        <p className="newActP">Activity description: </p>
                         <TextArea value={this.state.actDesc}
                         onChange={this.handleInputChange}
                         name="actDesc"
                         placeholder="Describe this activity (how did it go? how were you feeling?)"/>
-                        <p>Date: </p>
+                        <p className="newActP">Date: </p>
                         <Input type="date" value={this.state.actDate}
                         onChange={this.handleInputChange}
                         name="date"/>
-                        <p>Duration: </p>
+                        <p className="newActP">Duration: </p>
                         <Input value={this.state.durationMins}
                         onChange={this.handleInputChange}
                         name="durationMins" size="2"/> Minutes 
                         <Input value={this.state.durationSecs}
                         onChange={this.handleInputChange}
                         name="durationSecs" size="2"/> Seconds
-                        <p>Distance (in miles): </p>
+                        <p className="newActP">Distance (in miles): </p>
                         <Input value={this.state.distance}
                         onChange={this.handleInputChange}
                         name="distance"
                         type="number" size="6" />
-                        <p>Type of activity: </p>
+                        <p className="newActP">Type of activity: </p>
                         <select name="sportType" onChange={this.handleInputChange}>
                             <option value="">--Please choose an option--</option>
                             <option value="hiking">Hiking</option>
