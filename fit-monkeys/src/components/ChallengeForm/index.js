@@ -4,21 +4,10 @@ import img from '../../Images/banana3.png'
 import { Form, Jumbotron, Container, Button } from "react-bootstrap";
 
 function ChallengeForm(props) {
-    return (
-        <div className="container ">
-            {/* <div className="card cardForm align-items-center justify-content-center"> */}
-                <div className="img-container">
-                    <img alt={props.name} src={props.image} />
-                </div>
-                <div className="content">
-                    <ul>
-                        {/* <li> */}
-                            <strong></strong> {props.name}
-                        {/* </li> */}
-                    </ul>
-                {/* </div> */}
+    // console.log("props", props.location.name);
 
-            </div>
+    return (
+ 
             <div className="Form ChalForm">
                 <Form>
                     <Form.Group controlId="exampleForm.ControlInput1">
@@ -46,7 +35,7 @@ function ChallengeForm(props) {
                     </Button>
                 </Form>
             </div>
-        </div>
+      
     );
 }
 

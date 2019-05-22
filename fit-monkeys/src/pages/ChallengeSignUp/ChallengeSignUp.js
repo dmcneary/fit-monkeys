@@ -9,22 +9,26 @@ import { Jumbotron } from "react-bootstrap";
 
 
 class ChallengeSignup extends Component {
-
-	
+constructor(props){
+    super(props);
+}
 
     render() {
+        console.log("props", this.props.location);
         return (
-        <Container fluid>
-        <Jumbotron fluid className="JumboSign">
+            <Container fluid>
+                <Jumbotron fluid className="JumboSign">
                     <Container>
                         <br /><br /><br />
                         <h1 className="text-center">Challenge Sign Up</h1>
+                        <h2 className="chalName"> {this.props.location.name}</h2>
+                        <img className="srcPic" src={this.props.location.img} />
                     </Container>
                 </Jumbotron>
-                <ChallengeForm />
-            <Row>
-            </Row>
-        </Container>
+                <ChallengeForm className="cForm" />
+                <Row>
+                </Row>
+            </Container>
         );
     }
 }

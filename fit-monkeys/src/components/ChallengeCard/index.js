@@ -2,6 +2,7 @@ import React from "react";
 import "./ChallengeCard.css";
 import img from '../../Images/banana3.png'
 import { Button, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ChallengeCard(props) {
     return (
@@ -32,7 +33,7 @@ function ChallengeCard(props) {
                     </li>
                     <li>
                         {['left'].map(placement => (
-                            <OverlayTrigger 
+                            <OverlayTrigger
                                 key={placement}
                                 placement={placement}
                                 overlay={
@@ -40,7 +41,9 @@ function ChallengeCard(props) {
                                         <strong>{placement} </strong> {props.description}
                                     </Tooltip>
                                 }>
-                                <Button variant="secondary" className="joinBtn">Join Now</Button>
+                                <Link to={{pathname: "/ChallengeSignUp", name: props.name, img: props.image}}>
+                                    <Button variant="secondary" className="joinBtn">Join Now</Button>
+                                </Link>
                             </OverlayTrigger>
                         ))}
                     </li>
