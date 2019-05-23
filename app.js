@@ -30,7 +30,7 @@ app.use(passport.session()) // calls the deserializeUser
 // Serve up static assets (usually on heroku)
 
 if (process.env.NODE_ENV === "production") {
-	app.use('/static', express.static(path.join(__dirname, 'client/build')));
+	app.use(express.static(path.join(__dirname, 'build')));
 }
 // Routes
 app.use(routes)
