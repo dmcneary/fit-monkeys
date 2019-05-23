@@ -6,12 +6,12 @@ const session = require('express-session');
 const dbConnection = require('./models');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
+const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const mongoose = require('mongoose');
 const routes = require('./routes');
-const path = require('path');
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -28,10 +28,9 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 // Serve up static assets (usually on heroku)
+
 if (process.env.NODE_ENV === "production") {
-	app.use('*', function(req, res) {
-		res.sendFile(path.join(__dirname, './client/build/index.html'));
-	});
+	app.use('/static', express.static(path.join(__dirname, 'client/build')));
 }
 // Routes
 app.use(routes)
