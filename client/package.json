@@ -1,6 +1,7 @@
 {
   "name": "fit-monkeys",
   "version": "0.1.0",
+  "homepage": "https://obscure-wave-97311.herokuapp.com/",
   "private": true,
   "dependencies": {
     "express-session": "^1.16.1",
