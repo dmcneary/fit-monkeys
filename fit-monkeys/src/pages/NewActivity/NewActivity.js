@@ -99,7 +99,7 @@ class NewActivity extends Component {
                             <option value="rowing">Rowing</option>
                         </select>
                         <div className="submitBtn">
-                            <button className="btn btn-success" onClick={this.handleSubmit} type="submit">Create Activity</button>
+                            <button className="btn btnSub1" font-color="white" onClick={this.handleSubmit} type="submit">Create Activity</button>
                         </div>
                         </form>
                         
