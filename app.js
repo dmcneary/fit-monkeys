@@ -29,16 +29,14 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("fit-monkeys/build"));
+	app.use('*', function(req, res) {
+		res.sendFile(path.join(__dirname, './client/build/index.html'));
+	});
 }
 // Routes
 app.use(routes)
 
-if (process.env.NODE_ENV === "production") {
-	app.use('*', function(req, res) {
-		res.sendFile(path.join(__dirname, './fit-monkeys/build/index.html'));
-	});
-}
+
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
