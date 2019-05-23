@@ -12,10 +12,12 @@ class Navbar extends Component {
   logout(event) {
     event.preventDefault()
     console.log('logging out')
+    const history = this.props.history
     axios.post('/user/logout').then(response => {
       console.log(response.data)
       if (response.status === 200) {
         this.props.getUser();
+        history.push("/");
       }
     }).catch(error => {
       console.log('Logout error');
