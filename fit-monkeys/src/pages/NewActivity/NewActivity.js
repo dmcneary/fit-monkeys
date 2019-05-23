@@ -3,9 +3,8 @@ import axios from "axios";
 import { Input, TextArea } from "../../components/Form";
 import { Row, Container } from "../../components/Grid";
 import "./NewActivity.css";
-import L from 'leaflet';
-import * as Routing from "leaflet-routing-machine";
-
+import L from "leaflet";
+import Routing from "leaflet-routing-machine/dist/leaflet-routing-machine";
 class NewActivity extends Component {
     constructor(props) {
         super(props);
@@ -50,6 +49,14 @@ class NewActivity extends Component {
         })
             .addTo(map);
 
+        /*const control = L.control({
+            waypoints: [
+                L.latLng(34.0689, -118.4452),
+                L.latLng(34.0407, -118.2468)
+            ],
+            routeWhileDragging: true
+            }).addTo(map);*/
+
         function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
@@ -57,20 +64,12 @@ class NewActivity extends Component {
             return btn;
         }
 
-        L.Routing.control({
-            waypoints: [
-                L.latLng(57.74, 11.94),
-                L.latLng(57.6792, 11.949)
-            ],
-            routeWhileDragging: true
-            }).addTo(map);
-
         map.on('click', function (e) {
             var container = L.DomUtil.create('div'),
                 startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
                 
-            L.DomEvent.on(startBtn, 'click', function () {
+            /*L.DomEvent.on(startBtn, 'click', function () {
                 control.spliceWaypoints(0, 1, e.latlng);
                 map.closePopup();
             });
@@ -78,7 +77,7 @@ class NewActivity extends Component {
             L.DomEvent.on(destBtn, 'click', function () {
                 control.spliceWaypoints(L.control.getWaypoints().length - 1, 1, e.latlng);
                 map.closePopup();
-            });
+            });*/
             L.popup()
                 .setContent(container)
                 .setLatLng(e.latlng)
@@ -119,7 +118,7 @@ class NewActivity extends Component {
                 console.log(res)
                 if (!res.data.errmsg) { //redirect to activity detail page
                     console.log('activity create successful')
-                    history.push("/activities/" + res.data._id);
+                    history.push("/api/activities/" + res.data._id);
                 }
             }).catch(error => {
                 console.log('activity creation error: ')
