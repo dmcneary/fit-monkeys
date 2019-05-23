@@ -2,7 +2,6 @@
   "name": "fit-monkeys",
   "version": "1.0.0",
   "main": "app.js",
-
   "scripts": {
     "start": "node app.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
@@ -21,6 +20,7 @@
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "http-errors": "~1.6.2",
+    "if-env": "^1.0.4",
     "leaflet": "^1.5.1",
     "leaflet-routing-machine": "^3.2.12",
     "mongoose": "^5.5.7",
@@ -30,8 +30,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.8",
-    "react-router-dom": "^5.0.0",
-    "if-env": "^1.0.4"
+    "react-leaflet": "^2.3.0",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"
