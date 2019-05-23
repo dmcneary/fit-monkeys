@@ -3,7 +3,8 @@ import axios from "axios";
 import { Input, TextArea } from "../../components/Form";
 import { Row, Container } from "../../components/Grid";
 import "./NewActivity.css";
-import L from "leaflet";
+import Leaflet from "leaflet";
+import "leaflet-routing-machine/dist/leaflet-routing-machine";
 
 class NewActivity extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class NewActivity extends Component {
 
         //get user location
         const geoSuccess = (position) => {
+            console.log(position);
             this.setState({
                 userLocation: {
                     lat: position.coords.latitude,
@@ -38,10 +40,12 @@ class NewActivity extends Component {
             })
         };
         navigator.geolocation.getCurrentPosition(geoSuccess);
+
         //leaflet map render
-        const map = L.map('map').setView([this.state.userLocation.lat, this.state.userLocation.lon], 13);
+        const map = Leaflet.map('map').setView([this.state.userLocation.lat, this.state.userLocation.lon], 13);
+
         //base map layer
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c'],
             maxZoom: 17,
@@ -49,37 +53,37 @@ class NewActivity extends Component {
         })
             .addTo(map);
 
-        L.Routing.control({
+        const control = Leaflet.Routing.control({
             waypoints: [
-                L.latLng(34.0689, -118.4452),
-                L.latLng(34.0407, -118.2468)
+                Leaflet.latLng(this.state.userLocation.lat, this.state.userLocation.lon),
+                Leaflet.latLng(34.0407, -118.2468)
             ],
             routeWhileDragging: true
             }).addTo(map);
 
         function createButton(label, container) {
-            var btn = L.DomUtil.create('button', '', container);
+            var btn = Leaflet.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
         map.on('click', function (e) {
-            var container = L.DomUtil.create('div'),
+            var container = Leaflet.DomUtil.create('div'),
                 startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
                 
-            L.DomEvent.on(startBtn, 'click', function () {
-                L.Routing.control.spliceWaypoints(0, 1, e.latlng);
+            Leaflet.DomEvent.on(startBtn, 'click', function () {
+                control.spliceWaypoints(0, 1, e.latlng);
                 map.closePopup();
             });
 
-            L.DomEvent.on(destBtn, 'click', function () {
-                L.Routing.control.spliceWaypoints(L.control.getWaypoints().length - 1, 1, e.latlng);
+            Leaflet.DomEvent.on(destBtn, 'click', function () {
+                control.spliceWaypoints(Leaflet.control.getWaypoints().length - 1, 1, e.latlng);
                 map.closePopup();
             });
 
-            L.popup()
+            Leaflet.popup()
                 .setContent(container)
                 .setLatLng(e.latlng)
                 .openOn(map);
@@ -101,6 +105,8 @@ class NewActivity extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        this.setState({
+            waypoints: Leaflet.control.getWaypoints()});
         const history = this.props.history
         console.log('new activity handleSubmit, username: ');
         console.log(this.props.username);
@@ -113,7 +119,8 @@ class NewActivity extends Component {
             durationMins: this.state.durationMins,
             durationSecs: this.state.durationSecs,
             distance: this.state.distance,
-            sportType: this.state.sportType
+            sportType: this.state.sportType,
+            waypoints: this.state.waypoints
         })
             .then(res => {
                 console.log(res)

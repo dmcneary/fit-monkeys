@@ -12,6 +12,7 @@ const activitySchema = new Schema({
     durationMins: { type: Number, unique: false, required: true },
     durationSecs: { type: Number, unique: false, required: true },
     sportType: { type: String, unique: false, required: true },
+    waypoints: { type: Array }
 });
 
 const Activity = mongoose.model('activity', activitySchema);
