@@ -58,6 +58,7 @@ class NewActivity extends Component {
                 Leaflet.latLng(this.state.userLocation.lat, this.state.userLocation.lon),
                 Leaflet.latLng(34.0407, -118.2468)
             ],
+            serviceUrl: "http://osrm.mapzen.com/bicycle/viaroute",
             routeWhileDragging: true
             }).addTo(map);
 
