@@ -50,9 +50,11 @@ class Challenge extends Component {
                             id={card.id}
                             key={card.id}
                             name={card.name}
+                            distance={card.distance}
                             image={card.image}
                             bananas={card.bananas}
                             location={card.location}
+                            description={card.description}
                         />
 
                     ))}
