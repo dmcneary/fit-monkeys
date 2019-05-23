@@ -45,8 +45,9 @@ class LoginForm extends Component {
                 console.log(res)
                 if (res.status === 200) {
                     // update App.js state
-                    this.props.getUser().then(history.push("/dashboard"))      
-            }
+                    this.props.getUser();   
+                    history.push("/dashboard");
+        }
         }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
