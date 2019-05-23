@@ -36,7 +36,7 @@ class Navbar extends Component {
               <a className="nav-link" href="/dashboard">Dashboard</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/challenges">Challenges</a>
+              <a className="nav-link" href="/Challenges">Challenges</a>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
