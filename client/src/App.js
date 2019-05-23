@@ -13,8 +13,8 @@ import NewActivity from "./pages/NewActivity";
 import ActivityDetail from "./pages/ActivityDetail";
 import ChallengeSignUp from "./pages/ChallengeSignUp";
 import NoMatch from "./pages/NoMatch";
-import './App.css';
 import Navbar from './components/NavbarLoggedIn';
+import { isNullOrUndefined } from 'util';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class App extends Component {
   getUser() {
     axios.get('/user').then(response => {
       console.log(response);
-      if (response.data.user.username) {
+      if (response.data.user !== null) {
         console.log('Get User: There is a user saved in the server session: ')
         console.log(response.data.user.username);
         this.setState({

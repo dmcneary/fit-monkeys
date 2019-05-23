@@ -20,7 +20,8 @@ class NewActivity extends Component {
             durationSecs: 0,
             distance: 0,
             sportType: "",
-            message: ""
+            message: "",
+            waypoints: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -52,23 +53,29 @@ class NewActivity extends Component {
             minZoom: 9
         })
             .addTo(map);
+        //bike lanes
+        Leaflet.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            minZoom: 9
+        })
+            .addTo(map);
 
+        //init LRM
         const control = Leaflet.Routing.control({
             waypoints: [
                 Leaflet.latLng(this.state.userLocation.lat, this.state.userLocation.lon),
                 Leaflet.latLng(34.0407, -118.2468)
             ],
-            serviceUrl: "http://osrm.mapzen.com/bicycle/viaroute",
             routeWhileDragging: true
             }).addTo(map);
-
+        
         function createButton(label, container) {
             var btn = Leaflet.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
-
+        //routing endpoint buttons
         map.on('click', function (e) {
             var container = Leaflet.DomUtil.create('div'),
                 startBtn = createButton('Start from this location', container),
@@ -80,7 +87,7 @@ class NewActivity extends Component {
             });
 
             Leaflet.DomEvent.on(destBtn, 'click', function () {
-                control.spliceWaypoints(Leaflet.control.getWaypoints().length - 1, 1, e.latlng);
+                control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
                 map.closePopup();
             });
 
@@ -89,13 +96,6 @@ class NewActivity extends Component {
                 .setLatLng(e.latlng)
                 .openOn(map);
         });
-
-        /*bike lanes
-        L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
-            maxZoom: 17,
-            minZoom: 9
-        })
-            .addTo(map);*/
     }
 
     handleInputChange(event) {
@@ -107,7 +107,8 @@ class NewActivity extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({
-            waypoints: Leaflet.control.getWaypoints()});
+            waypoints: () => Leaflet.Routing.control.getWaypoints()
+            })
         const history = this.props.history
         console.log('new activity handleSubmit, username: ');
         console.log(this.props.username);

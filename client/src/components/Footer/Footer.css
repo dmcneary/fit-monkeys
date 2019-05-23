@@ -1,7 +1,6 @@
 .page-footer {
     min-height: 200px;
     background: #C0C0C0;
-    position: relative;
     margin-top: 250px;
   }
   
@@ -79,10 +78,6 @@
   
   .fa-linkedin {
     background: #007bb5;
-    color: white;
-  }
-
-  p {
     color: white;
   }
 
