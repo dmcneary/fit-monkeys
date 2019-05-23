@@ -6,6 +6,7 @@ const session = require('express-session');
 const dbConnection = require('./models');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require('./routes')
@@ -26,7 +27,7 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("fit-monkeys/build"));
 }
 // Routes
 app.use(routes)
