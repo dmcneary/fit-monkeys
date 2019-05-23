@@ -40,23 +40,3 @@ app.use(routes)
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
-
-var databaseUri = 'mongodb://heroku_0mdg0tpm:8jcr3g8v6e198mk37pnjqgsccc@ds259596.mlab.com:59596/heroku_0mdg0tpm';
-
-if (process.env.MONGODB_URI) {
-	mongoose.connect(process.env.MONGODB_URI);
-
-} else {
-	mongoose.connect(databaseUri);
-}
-
-var db = mongoose.connection;
-
-db.on('error', function(err) {
- console.log('Mongoose Error: ', err);
-
-});
-
-db.once('open', function() {
-	console.log('Mongoose connection successful.')
-});
