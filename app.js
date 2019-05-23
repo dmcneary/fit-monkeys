@@ -28,13 +28,15 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-// Routes
-app.use(routes)
 if (process.env.NODE_ENV === 'production') {
 	// Serve any static files
 	app.use(express.static(path.join(__dirname, 'client/build')));
 	}
-	app.get('/*', function(req, res) {
+
+// Routes
+app.use(routes)
+
+app.get('*', function(req, res) {
 		res.sendFile(path.join(__dirname, 'build', 'index.html'));
 	});
 	
