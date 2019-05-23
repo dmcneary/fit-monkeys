@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./ActivityDetail.css";
 import axios from "axios";
 import { Container } from "../../components/Grid";
-import { Link } from "react-router-dom";
 
 class Detail extends Component {
     constructor(props) {
@@ -24,9 +23,7 @@ class Detail extends Component {
                 <div className="media">
                     <img className="mr-3" src="https://staticmapmaker.com/img/google.png" length="250" width="250" alt="placeholder" />
                     <div className="media-body">
-                        <Link to={"/api/activity/" + this.state.activity._id}>
-                            <h3 className="mt-0">{this.state.activity.actTitle}</h3>
-                        </Link>
+                        <h3 className="mt-0">{this.state.activity.actTitle}</h3>
                         <h4>by {this.state.activity.userId}</h4>
                         <p>Created {this.state.activity.actDate}</p>
                         <hr />

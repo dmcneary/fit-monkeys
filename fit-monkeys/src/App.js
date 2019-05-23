@@ -70,7 +70,7 @@ class App extends Component {
           render={(props) => <Dashboard {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/all-activities" component={AllActivities} />
-          <Route exact path="/activities/:id" render={(props) => <ActivityDetail {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
+          <Route exact path="/api/activities/:id" render={(props) => <ActivityDetail {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
           />
           <Route exact path="/newactivity" 
           render={(props) => <NewActivity {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
