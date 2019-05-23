@@ -7,7 +7,7 @@ const userRoutes = require('./user')
 router.use("/user", userRoutes);
 router.use("/api", apiRoutes);
 
-//otherwise serve dev build
+//otherwise serve React
 router.use(function (req, res) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
