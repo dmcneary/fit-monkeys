@@ -4,7 +4,7 @@ import { Input, TextArea } from "../../components/Form";
 import { Row, Container } from "../../components/Grid";
 import "./NewActivity.css";
 import L from "leaflet";
-import Routing from "leaflet-routing-machine/dist/leaflet-routing-machine";
+
 class NewActivity extends Component {
     constructor(props) {
         super(props);
@@ -49,13 +49,13 @@ class NewActivity extends Component {
         })
             .addTo(map);
 
-        /*const control = L.control({
+        L.Routing.control({
             waypoints: [
                 L.latLng(34.0689, -118.4452),
                 L.latLng(34.0407, -118.2468)
             ],
             routeWhileDragging: true
-            }).addTo(map);*/
+            }).addTo(map);
 
         function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
@@ -69,15 +69,16 @@ class NewActivity extends Component {
                 startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
                 
-            /*L.DomEvent.on(startBtn, 'click', function () {
-                control.spliceWaypoints(0, 1, e.latlng);
+            L.DomEvent.on(startBtn, 'click', function () {
+                L.Routing.control.spliceWaypoints(0, 1, e.latlng);
                 map.closePopup();
             });
 
             L.DomEvent.on(destBtn, 'click', function () {
-                control.spliceWaypoints(L.control.getWaypoints().length - 1, 1, e.latlng);
+                L.Routing.control.spliceWaypoints(L.control.getWaypoints().length - 1, 1, e.latlng);
                 map.closePopup();
-            });*/
+            });
+
             L.popup()
                 .setContent(container)
                 .setLatLng(e.latlng)
