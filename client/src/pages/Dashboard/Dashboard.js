@@ -14,9 +14,9 @@ const Dashboard = (props) => {
             <RecentActivities username={props.username}/>
           </Jumbotron>
         </Col>
-        <Col size="4">
+        {/*<Col size="4">
           <Totals />
-        </Col>
+        </Col>*/}
       </Row>
     </Container>
   );

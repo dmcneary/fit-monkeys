@@ -4,12 +4,12 @@
   "main": "app.js",
 
   "scripts": {
-    "start": "./node_modules/if-env/bin/if-env.js NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node app.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd fit-monkeys && npm run start",
-    "install": "cd fit-monkeys && npm install",
-    "build": "cd fit-monkeys && npm run build",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
