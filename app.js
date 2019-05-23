@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
 	session({
-		secret: 'fraggle-rock', 
+		secret: process.env.SECRET || 'fraggle-rock', 
 		store: new MongoStore({ mongooseConnection: dbConnection }),
 		resave: false, //required
 		saveUninitialized: false //required
