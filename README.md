@@ -1,6 +1,12 @@
 # Fit Monkeys
-# final-project
+# Final-Project
 UCLA Extension final project
+
+## Developers
+* David McNeary
+* Jin Young Kim
+* Vinny Puranam
+* Lori Muller
 
 
 ## Installing
