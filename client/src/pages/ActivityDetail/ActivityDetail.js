@@ -38,7 +38,6 @@ class Detail extends Component {
                         <p>Created {this.state.activity.actDate}</p>
                         <hr />
                         <div className="col-xs-12 col-md-8">
-                            <p>insert leaflet map drawing here</p>
                             <p>{this.state.activity.actDesc}</p>
                         </div>
                         <div className="col-xs-12 col-md-4">
