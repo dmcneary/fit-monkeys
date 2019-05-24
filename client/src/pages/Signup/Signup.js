@@ -18,18 +18,12 @@ class Signup extends Component {
             gender: "",
             age: 13,
             location: "",
-            message: ""
-            //redirect: false
+            message: "",
+            formValid: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
     }
-
-    /*handleRedirect = () => {
-        if (this.state.redirect) {
-          return <Redirect to='/login' />
-        }
-      }*/
 
     handleInputChange(event) {
         this.setState({
@@ -41,6 +35,7 @@ class Signup extends Component {
         console.log('sign-up handleSubmit, username: ');
         console.log(this.state.username);
         const { history } = this.props;
+        //if (!formValid)
         //request to server to add a new username/password
         axios.post('/user', {
             firstName: this.state.firstName,
@@ -58,7 +53,7 @@ class Signup extends Component {
                     history.push("/login");
                 } else {
                     console.log('username already taken')
-                    this.setState({ message: "That username is already in use. Please pick a different username." })
+                    this.setState({userValid: false, message: "That username is already in use. Please pick a different username." })
                 }
             }).catch(error => {
                 console.log('signup error: ')
